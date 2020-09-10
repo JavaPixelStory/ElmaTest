@@ -1,0 +1,46 @@
+using System;
+using System.IO;
+
+namespace ElmaTest
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+			//Пишу на С# впервые, за чистоту кода не отвечаю, сам пишу на джаве =)
+
+			StreamWriter anketa = new StreamWriter(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location), "anketa.txt"));
+			string name;
+			Console.Write("Введите ФИО - ");
+			name = Console.ReadLine();
+			anketa.WriteLine("ФИО: " + name + " ");
+               //Запрос у юзера ФИО и записываем в текстовый файл
+
+            string date;
+			Console.Write("Введите дату рождения - ");
+			date = Console.ReadLine();
+			anketa.WriteLine("Дата рождения: " + date + " ");
+               //Запрос у юзера даты рождения записываем в текстовый файл
+
+            string position;
+			Console.Write("Введите желаемую должность - ");
+			position = Console.ReadLine();
+			anketa.WriteLine("Желаемая должность: " + position + " ");
+			   //Запрос у юзера желаемой должности записываем в текстовый файл
+
+			while (true)
+			{
+				string job;
+				Console.Write("Введите место работы, или нажмите Enter для окончания анкетирования - ");
+				job = Console.ReadLine();
+				if (job.Equals(""))
+				{
+					break;
+				};
+				anketa.WriteLine("Место работы: " + job);
+		       //Запрос у юзера места работы и запись в текстовый файл
+				};
+			anketa.Close();
+			}
+		}
+    }
